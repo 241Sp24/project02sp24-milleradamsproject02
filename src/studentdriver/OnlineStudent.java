@@ -22,7 +22,7 @@ public class OnlineStudent extends StudentFees {
     }
     
     public String toString(){
-        
+        return "Online student";
     }
             
     

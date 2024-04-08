@@ -54,10 +54,10 @@ public class StudentFees {
     }
     
     public double getPayableAmount(){
-        return coursesEnrolled * CREDITS_PER_COURSE * PER_CREDIT_FEE;
+        return CREDITS_PER_COURSE * PER_CREDIT_FEE;
     }
     
     public String toString(){
-        
+        return "Student Fees";
     }
 }
