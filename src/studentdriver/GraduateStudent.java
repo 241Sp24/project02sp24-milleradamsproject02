@@ -39,6 +39,10 @@ public class GraduateStudent extends StudentFees{
     }
     
     public double getPayableAmount(){
+        if(GraduateStudent(4).equals("full")){
+            return 0.00;
+        }
+        else
         return coursesEnrolled + ADDITIONAL_FEES;
     }
     

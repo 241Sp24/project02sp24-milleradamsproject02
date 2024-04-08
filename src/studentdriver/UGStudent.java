@@ -35,7 +35,12 @@ public class UGStudent extends StudentFees {
     }
     
     public double getPayableAmount(){
-        return coursesEnrolled + ADDITIONAL_FEE;
+        if(hasScholarship == true){
+            return coursesEnrolled + ADDITIONAL_FEE - scholarshipAmount;
+        }
+        else{
+            return coursesEnrolled + ADDITIONAL_FEE;
+        }
     }
     
     public String toString(){
