@@ -1,14 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package studentdriver;
 
-/**
- *
- * @author S552370
- */
+
 public class GraduateStudent extends StudentFees{
+    //Declare variables
     private int coursesEnrolled;
     private boolean isGraduateAssistant;
     private String graduateAssistantType;
@@ -30,24 +25,34 @@ public class GraduateStudent extends StudentFees{
         this.coursesEnrolled = coursesEnrolled;
     }
     
+    //Returns true or false whether or not the person is a graduate assistant or not
     public boolean isIsGraduateAssistant(){
         return isGraduateAssistant;
     }
     
+    //Returns how many courses the student is enrolled in
     public int getCoursesEnrolled(){
         return coursesEnrolled;
     }
     
+    //Returns the amount that is to be paid
     public double getPayableAmount(){
-        if(GraduateStudent(4).equals("full")){
-            return 0.00;
+        if(isIsGraduateAssistant() == true){
+            if (graduateAssistantType.equals("full")){
+                return ADDITIONAL_FEES;
+            }
+            else if (graduateAssistantType.equals("half")){
+                return(((coursesEnrolled * getCREDITS_PER_COURSE()) * getPER_CREDIT_FEE()) + ADDITIONAL_FEES) / 2;
+            }
         }
-        else
-        return coursesEnrolled + ADDITIONAL_FEES;
+        return ((coursesEnrolled * getCREDITS_PER_COURSE()) * getPER_CREDIT_FEE()) + ADDITIONAL_FEES;
     }
     
+    //Returns the information shared by all students as well as only information that grad students have
     public String toString(){
-        return "Graduate Student";
+        return super.toString() + "\nGraduate assistant: " + isIsGraduateAssistant() + 
+                "\nGraduate assistant type: " + graduateAssistantType + "\nCourses enrolled: " + 
+                getCoursesEnrolled() + "\nPayable amount: " + getPayableAmount();
     }
             
 }

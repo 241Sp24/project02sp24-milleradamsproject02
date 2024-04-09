@@ -1,14 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package studentdriver;
 
-/**
- *
- * @author S552370
- */
+
 public class UGStudent extends StudentFees {
+    //Declare variables
     private double scholarshipAmount;
     private int coursesEnrolled;
     private boolean hasScholarship;
@@ -22,28 +17,34 @@ public class UGStudent extends StudentFees {
         this.coursesEnrolled = coursesEnrolled;
     }
     
+    //Determines if student has a scholarship
     public boolean isHasScholarship(){
         return hasScholarship;
     }
     
+    //Returns the amount of the scholarship
     public double getScholarshipAmount(){
         return scholarshipAmount;
     }
     
+    //Returns how many courses the student is enrolled in
     public int getCourseEnrolled(){
         return coursesEnrolled;
     }
     
+    //Returns how much the student 
     public double getPayableAmount(){
-        if(hasScholarship == true){
-            return coursesEnrolled + ADDITIONAL_FEE - scholarshipAmount;
+        if (isIsEnrolled() == false){
+            return 0.00;
         }
-        else{
-            return coursesEnrolled + ADDITIONAL_FEE;
-        }
+        return (coursesEnrolled * getCREDITS_PER_COURSE() * getPER_CREDIT_FEE()) + ADDITIONAL_FEE - 
+                scholarshipAmount;
     }
     
+    //Returns the student information that all student have plus only information from UG Students
     public String toString(){
-        return "UG Student";
+        return  super.toString() + "\nScholarship: "  + isHasScholarship() + "\nScholarship amount: " + 
+                getScholarshipAmount() + "\nCourses enrolled: " + getCourseEnrolled() +
+                "\nPayable amount: " + getPayableAmount();
     }
 }
