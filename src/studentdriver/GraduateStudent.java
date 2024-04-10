@@ -42,17 +42,17 @@ public class GraduateStudent extends StudentFees{
                 return ADDITIONAL_FEES;
             }
             else if (graduateAssistantType.equals("half")){
-                return(((coursesEnrolled * getCREDITS_PER_COURSE()) * getPER_CREDIT_FEE()) + ADDITIONAL_FEES) / 2;
+                return((coursesEnrolled * getCREDITS_PER_COURSE() * getPER_CREDIT_FEE()) / 2) + ADDITIONAL_FEES;
             }
         }
-        return ((coursesEnrolled * getCREDITS_PER_COURSE()) * getPER_CREDIT_FEE()) + ADDITIONAL_FEES;
+        return coursesEnrolled * getCREDITS_PER_COURSE() * getPER_CREDIT_FEE() + ADDITIONAL_FEES;
     }
     
     //Returns the information shared by all students as well as only information that grad students have
     public String toString(){
         return super.toString() + "\nGraduate assistant: " + isIsGraduateAssistant() + 
                 "\nGraduate assistant type: " + graduateAssistantType + "\nCourses enrolled: " + 
-                getCoursesEnrolled() + "\nPayable amount: " + getPayableAmount();
+                getCoursesEnrolled() + "\nPayable amount: " + String.format("%.2f",getPayableAmount());
     }
             
 }

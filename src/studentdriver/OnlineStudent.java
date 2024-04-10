@@ -19,7 +19,8 @@ public class OnlineStudent extends StudentFees {
     
     //Return the information shared by all students plus information only online student have
     public String toString(){
-        return super.toString() + "\nNo of months: " + noOfMonths + "\nPayable amount: " + getPayableAmount();
+        return super.toString() + "\nNo of months: " + noOfMonths + "\nPayable amount: " + 
+                String.format("%.2f", getPayableAmount());
     }
             
     

@@ -55,9 +55,9 @@ public class StudentDriver {
         double courseSum2 = 0;
         double fee = 654.45;
         double courseSum3 = 0;
-        double courseNum1 = 0;
-        double courseNum2 = 0;
-        double courseNum3 = 0;
+        int courseNum1 = 0;
+        int courseNum2 = 0;
+        int courseNum3 = 0;
         double onlineFee = 1245.25;
         int assistCount = 0;
         
@@ -102,9 +102,10 @@ public class StudentDriver {
                     assistCount ++;
                     if (graduateAssistantType.equals("full")){
                         enroll2 ++;
+                        courseSum2 += (fee);
                     }
                      else if (graduateAssistantType.equals("half")){
-                        courseSum2 += (coursesEnrolled * cred * credFee) + fee / 2;
+                        courseSum2 += ((coursesEnrolled * cred * credFee) / 2) + fee;
                         enroll2 ++;
                     }
                 }
@@ -117,7 +118,7 @@ public class StudentDriver {
                             coursesEnrolled);
                     courseNum2 += coursesEnrolled;
                     courseSum2 += (coursesEnrolled * cred * credFee) + fee;
-                    //enroll3 ++;
+                    enroll2 ++;
                 }
                 count++;
             }
@@ -178,13 +179,13 @@ public class StudentDriver {
         //Statements that print out information about each student level 
         System.out.println("***********Undergraduate Student Details***********");
         double avgFee1 = courseSum1 / enroll1;
-        System.out.println("Average Student fee: " + avgFee1);
+        System.out.printf("Average Student fee: %.2f\n", avgFee1);
         System.out.println("Scholarship count: " + scholarshipCount);
         System.out.println("Total number of courses: " + courseNum1);
         
         System.out.println("***********Graduate Student Details*********");
-        double avgFee2 = courseSum2 / 4;
-        System.out.println("Average Student fee: " + avgFee2);
+        double avgFee2 = courseSum2 / enroll2;
+        System.out.printf("Average Student fee: %.2f\n", avgFee2);
         System.out.println("Graduate Assistantship count: " + assistCount);
         System.out.println("Total number of courses: " + courseNum2);
         

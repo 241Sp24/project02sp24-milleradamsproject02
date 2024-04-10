@@ -44,7 +44,7 @@ public class UGStudent extends StudentFees {
     //Returns the student information that all student have plus only information from UG Students
     public String toString(){
         return  super.toString() + "\nScholarship: "  + isHasScholarship() + "\nScholarship amount: " + 
-                getScholarshipAmount() + "\nCourses enrolled: " + getCourseEnrolled() +
-                "\nPayable amount: " + getPayableAmount();
+                String.format("%.2f",getScholarshipAmount()) + "\nCourses enrolled: " + getCourseEnrolled() + 
+                "\nPayable amount: " + String.format("%.2f", getPayableAmount());
     }
 }
